@@ -8,177 +8,210 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <style>
+      /* Custom Styles */
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background-color: #343a40;
+        color: #fff;
+      }
+
+      h1 {
+        color: #343a40;
+      }
+
+      .lead {
+        color: #6c757d;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
+      .card {
+        height: 100%;
+      }
+
+      .card-img-top {
+        object-fit: cover;
+        height: 200px;
+      }
+
+      .card-text {
+        color: #6c757d;
+      }
+
+      .btn-outline-secondary {
+        color: #6c757d;
+      }
+
+      .btn-outline-secondary:hover {
+        color: #343a40;
+      }
+
+      .text-body-secondary {
+        color: #6c757d;
+      }
+
+      .bg-body-tertiary {
+        background-color: #f8f9fa;
+      }
+
+      /* Additional Custom Styles */
+      .album {
+        min-height: 100vh;
+        padding-top: 120px;
+      }
+    </style>
+    <script>
+      function showMessage() {
+        alert("Please contact Fontain for more details at 1-800-123-4567, thanks!");
+      }
+
+      function toggleFavorite(button) {
+        button.classList.toggle("btn-success");
+      }
+    </script>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= notice %></p>
 
-  <main>
+    <main>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Welcome to Fontain's Estate Match</h1>
+            <p class="lead text-body-secondary">Check out all our places around Tokyo, Japan!</p>
+            <p>
+              <a href="<%= form_path %>" class="btn btn-primary my-2">Sign House Form</a>
+              <a href="#" class="btn btn-secondary my-2" onclick="showMessage()">View Favorites</a>
+            </p>
+          </div>
+        </div>
+      </section>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Welcome to Fontain's Estate match</h1>
-        <p class="lead text-body-secondary">Check out all our places around Tokyo, Japan!</p>
-        <p>
-          <a href="<%= form_path %>" class="btn btn-primary my-2">Sign house Form</a>
-          <a href="#" class="btn btn-secondary my-2">View Favorites</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <%= image_tag "jp1.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+      <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <%= image_tag "jp1.jpg", class: "card-img-top", alt: "Thumbnail" %>
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showMessage()">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFavorite(this)">Favorite</button>
+                    </div>
+                    <small class="text-body-secondary">9 mins</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-           <%= image_tag "jp2.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+            <div class="col">
+              <div class="card shadow-sm">
+                <%= image_tag "jp2.jpg", class: "card-img-top", alt: "Thumbnail" %>
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showMessage()">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFavorite(this)">Favorite</button>
+                    </div>
+                    <small class="text-body-secondary">9 mins</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-           <%= image_tag "jp3.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+            <div class="col">
+              <div class="card shadow-sm">
+                <%= image_tag "jp3.jpg", class: "card-img-top", alt: "Thumbnail" %>
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showMessage()">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFavorite(this)">Favorite</button>
+                    </div>
+                    <small class="text-body-secondary">9 mins</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <%= image_tag "jp4.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+            <div class="col">
+              <div class="card shadow-sm">
+                <%= image_tag "jp4.jpg", class: "card-img-top", alt: "Thumbnail" %>
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showMessage()">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFavorite(this)">Favorite</button>
+                    </div>
+                    <small class="text-body-secondary">9 mins</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <%= image_tag "jp5.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+            <div class="col">
+              <div class="card shadow-sm">
+                <%= image_tag "jp5.jpg", class: "card-img-top", alt: "Thumbnail" %>
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showMessage()">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFavorite(this)">Favorite</button>
+                    </div>
+                    <small class="text-body-secondary">9 mins</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-           <%= image_tag "jp3.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+            <div class="col">
+              <div class="card shadow-sm">
+                <%= image_tag "jp1.jpg", class: "card-img-top", alt: "Thumbnail" %>
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="showMessage()">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleFavorite(this)">Favorite</button>
+                    </div>
+                    <small class="text-body-secondary">9 mins</small>
+                  </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <%= image_tag "jp1.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-           <%= image_tag "jp2.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-           <%= image_tag "jp4.jpg", class: "card-img-top", alt: "Thumbnail" %>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </main>
 
-</main>
     <%= yield %>
-
-  <%= render "layouts/footer" %>
-
+    <%= render "layouts/footer" %>
   </body>
 </html>
