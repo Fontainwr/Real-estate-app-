@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :properties
 
+  def account_signed_in?
+    false
+  end
 end
